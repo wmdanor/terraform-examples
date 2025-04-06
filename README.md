@@ -5,7 +5,7 @@ This repository is dedicated to Terraform Examples.
 In most if not all examples, GNU Make will be used
 to help with automation organisation.
 
-* * [AWS Examples](./aws)
+* [AWS Examples](./aws)
 
 ## FAQ
 

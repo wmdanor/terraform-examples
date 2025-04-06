@@ -18,21 +18,21 @@ exclude_functions := $(subst $(comma), ,$(EXCLUDE))
 functions := $(shell ls $(functions_dir))
 push_functions := $(filter-out $(exclude_functions),$(functions))
 
-help_sh := ./../../help.sh
+help_sh := ./../../../help.sh
 
 # Targets
 
 .DEFAULT_GOAL := help
 
 .PHONY: deploy
-deploy: | clean build push## Build and upload function code
+deploy: build upload## Build and upload function code
 
 
-.PHONY: push
-push: $(push_functions:%=push/%)## Upload function code
-push/%: FUNCTION = $*
-push/%:
-	@echo "Pushing '$(FUNCTION)' function code"
+.PHONY: upload
+upload: $(push_functions:%=upload/%)## Build and upload function code
+upload/%: FUNCTION = $*
+upload/%: build
+	@echo "Uploading '$(FUNCTION)' function code"
 	aws lambda update-function-code \
 		--function-name '$(FUNCTION_NAME_PREFIX)$(FUNCTION)' \
 		--zip-file fileb://$(assets_dir)/$(FUNCTION).zip --no-cli-pager

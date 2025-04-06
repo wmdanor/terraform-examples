@@ -1,52 +1,11 @@
-# Example - Terraform and FaaS
+# Terraform Examples
 
-Example of how you can deploy and manage FaaS with Terraform
-with help of GNU Make.
+This repository is dedicated to Terraform Examples.
 
-Every example includes fully isolated infrastructure and app
-deployment, which unlocks the possibility of splitting
-infrastructure and application code to different repositories
-and manage their deployments separately.
+In most if not all examples, GNU Make will be used
+to help with automation organisation.
 
-It also means that it is possible to only deploy whatever got
-changed instead of rebuilding all functions when after slightly
-modifying infrastructure configuration. 
-
-Examples here include aggregator Makefile, that combines
-deployment procedure into one command with flags to disable
-deployment of application or infrastructure (by default, both
-will be deployed).
-
-Every Makefile includes default help target, which can be shown
-by executing `make` or `make help`.
-
-## What is included
-
-* AWS Lambda example, `aws-lambda` folder
-
-Planned
-
-* Azure Functions
-* Google Cloud Functions
-* Docker Functions???
-
-## Prerequisites
-
-Required tools:
-
-* GNU Make
-* zip
-* Go
-* Terraform
-* AWS CLI - for AWS Lambda
-
-You also need to have working Terraform setup for your cloud account.
-
-That means:
-
-* You have configured Terraform backend (I am using S3).
-* You have created a role/user for Terraform to use, or any 
-  other mechanism to allow Terraform manage your infrastructure.
+* [AWS Examples](./aws)
 
 ## FAQ
 
@@ -79,9 +38,18 @@ https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents
 
 The reason I decided to use Make in this example is 
 
+### Why Make
+
+1. I like using Make.
+2. Make often comes preinstalled in many linux systems.
+3. With Make all or most automation logic is put inside Makefile, so:
+  * Your pipelines become trivial and so have minimal vendor lock in.
+  * You can test all your automation logic locally.
+  * You can "debug" whatever you are planning to run in pipelines locally.
+
 ### Breakdown of wildcard target
 
-Let's take a look at simplified fragment of `build/%` wildcard target:
+Let's take a look at simplified fragment of one of the wildcard targets:
 
 ```make
 functions := $(shell ls functions)

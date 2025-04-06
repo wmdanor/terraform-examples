@@ -25,4 +25,4 @@ jobs:
         
           - name: Plan
             run: make plan
-            working-directory: aws-lambda/infrastructure
+            working-directory: aws/aws-lambda/infra

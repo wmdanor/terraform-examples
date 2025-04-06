@@ -13,16 +13,18 @@ tf_plan_file := plan.tfplan
 tf_init_args := -backend-config=$(tf_backend_config_file)
 tf_plan_args := -var=prefix=$(FUNCTION_NAME_PREFIX)
 
-dummy_asset_file := dummy.zip
+dummy_asset_file := modules/lambda/dummy.zip
 
-help_sh := ./../../help.sh
+help_sh := ./../../../help.sh
 
 # Targets
 
 .DEFAULT_GOAL := help
 
 .PHONY: deploy
-deploy: | plan apply ## Plan and apply without confirmation
+deploy: plan## Plan and apply without confirmation
+	terraform apply $(tf_plan_file) $(ARGS)
+	@rm -f $(tf_plan_file)
 
 
 .PHONY: apply

@@ -5,10 +5,10 @@ INFRA := true## Whether to apply target to infrastructure
 
 # Internal vars
 
-function_name_prefix=aws-lambda-
+function_name_prefix=aws-lambda-example-
 
 app_dir := app
-infrastructure_dir := infrastructure
+infrastructure_dir := infra
 dirs := $(app_dir) $(infrastructure_dir)
 
 # Infrastructure must be deployed first,
@@ -20,7 +20,7 @@ ifeq ($(APP),true)
 selected_dirs := $(selected_dirs) $(app_dir)
 endif
 
-help_sh := ./../help.sh
+help_sh := ./../../help.sh
 
 # Targets 
 

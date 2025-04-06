@@ -18,7 +18,7 @@ exclude_functions := $(subst $(comma), ,$(EXCLUDE))
 functions := $(shell ls $(functions_dir))
 push_functions := $(filter-out $(exclude_functions),$(functions))
 
-help_sh := ./../../help.sh
+help_sh := ./../../../help.sh
 
 # Targets
 

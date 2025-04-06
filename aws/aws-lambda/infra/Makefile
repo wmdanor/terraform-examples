@@ -15,7 +15,7 @@ tf_plan_args := -var=prefix=$(FUNCTION_NAME_PREFIX)
 
 dummy_asset_file := dummy.zip
 
-help_sh := ./../../help.sh
+help_sh := ./../../../help.sh
 
 # Targets
 

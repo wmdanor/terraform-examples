@@ -11,13 +11,19 @@ This also means that it is possible to only deploy whatever got
 changed instead of rebuilding all functions after slightly
 modifying infrastructure configuration. 
 
+Every Makefile includes default help target, which can be shown
+by executing `make` or `make help`.
+
 Example here includes aggregator Makefile, that combines
 deployment procedure into one command with flags to disable
 deployment of application or infrastructure (by default, both
 will be deployed).
 
-Every Makefile includes default help target, which can be shown
-by executing `make` or `make help`.
+It is higly advisable to use paralellisation for deploying
+functions code using `--jobs` option
+(https://www.gnu.org/software/make/manual/html_node/Parallel.html),
+as `aws lambda update-function-code` for each function will be
+executed in sequence otherwise, which is unnecessary slowdown.
 
 ## Prerequisites
 

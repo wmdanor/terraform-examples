@@ -2,7 +2,7 @@
 
 usage="$0 <function-name>"
 
-prefix=aws-lambda-
+prefix=aws-lambda-example-
 fn="${prefix}${1}"
 
 if [ -z "$1" ]; then

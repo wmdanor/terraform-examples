@@ -38,6 +38,15 @@ https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents
 
 The reason I decided to use Make in this example is 
 
+### Why Make
+
+1. I like using Make.
+2. Make often comes preinstalled in many linux systems.
+3. With Make all or most automation logic is put inside Makefile, so:
+  * Your pipelines become trivial and so have minimal vendor lock in.
+  * You can test all your automation logic locally.
+  * You can "debug" whatever you are planning to run in pipelines locally.
+
 ### Breakdown of wildcard target
 
 Let's take a look at simplified fragment of one of the wildcard targets:

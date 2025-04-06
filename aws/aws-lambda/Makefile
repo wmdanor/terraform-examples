@@ -26,8 +26,6 @@ help_sh := ./../../help.sh
 
 .DEFAULT_GOAL := help
 
-# TODO: what about -j in submakes?
-
 # TODO: fix this shit: "|"
 .PHONY: deploy
 deploy: | $(selected_dirs:%=deploy-%)## Deploy

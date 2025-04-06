@@ -25,6 +25,13 @@ functions code using `--jobs` option
 as `aws lambda update-function-code` for each function will be
 executed in sequence otherwise, which is unnecessary slowdown.
 
+Using parallelisation is straightforward, when using application
+Makefile directly, but has some caveats, if you are going to use
+aggregator Makefile as it is done in this example, read
+[this](https://www.gnu.org/software/make/manual/html_node/Options_002fRecursion.html)
+for more details. Generally, it should not be a problem, this is
+something you need to keep in mid.
+
 ## Prerequisites
 
 Required tools:
